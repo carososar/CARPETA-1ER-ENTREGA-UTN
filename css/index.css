@@ -1,0 +1,765 @@
+/*font-family: 'La Belle Aurore', cursive;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.fondo {
+    width: 100%;
+    height: 1000px;
+    position: relative;
+    /*z-index: 1;*/
+    background-image: url("../img/fondomain6.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /*filter:contrast(80%);*/
+    filter: grayscale(30%);
+    
+    
+}
+
+header {
+    width: 100%; /*ancho del header*/
+    height: 70px; /*alto del header*/
+    
+}
+
+/*.header-logo{
+position: relative;
+
+}*/
+.header-contenedor{
+    display: flex-end;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    padding: 50px;
+    width: 100%;
+    height: 100px;
+}
+.header-logo{
+    position: absolute;
+    top: 70px;
+    left: 60px;
+}
+.header-logo::before{
+    content: "<header>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: -2rem;
+    left: 1rem;
+    text-transform: lowercase;
+
+}
+.header-logo::after{
+    content: "<header>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: 9rem;
+    left: 1700px;
+    text-transform: lowercase;
+
+}
+
+.header-texto{
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    top: -624px;
+    right: -304px;
+    
+}
+.header-texto h1 {
+    /*float: left; /*le indico al titulo que flote a la izq*/
+    margin-top: 25px; /*para que se separe el texto de la imagen*/
+    color: rgb(8, 8, 8);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.header-texto h1::before{
+    content: "<h1>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: 0rem;
+    left: -2rem;
+    text-transform: lowercase;
+}
+.header-texto h1::after{
+    content: "<h1>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: 4rem;
+    right: 56rem;
+    text-transform: lowercase;
+}
+
+
+.header-texto p {
+    color: rgb(7, 7, 7);
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header-texto p::before{
+    content: "<p>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: -1rem;
+    left: -2rem;
+    text-transform: lowercase;
+}
+
+.header-texto p::after{
+    content: "<p>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    /*left: -2rem;*/
+    right: 50rem;
+    bottom: 35rem;
+    text-transform: lowercase;
+}
+
+/*INICIO ESTILOS PARA EL MENU*/
+#menu-bar {
+    display: none;
+    /*transition-duration: 3s;*/
+}
+
+header label {
+    position: relative;
+    z-index: 100;
+    float: right;   /*le voy a indicar a la etiqueta menu que esta adentro del header que el icono menu flote*/ 
+    font-size: 35px; /*es el tamanio que voy a darle al icono*/
+    margin: 25px 0;
+    cursor: pointer; /*para que cuando pase el mouse aparezca la manito*/
+    color: black;
+}
+header label:hover {
+    color: black;
+}
+
+.menu {
+    position: absolute;
+    top: 0px; /*desde donde empieza, le indicamos que empiece desde la esquina, esta medida si quiero que empiece desde abajo tengo que poner la misma medida que le di al alto del header*/
+    right: 0;
+    width: 20%; /*ancho del menu*/
+    height: 100vh; /*para que ocupe siempre el alto de la ventana*/
+    background: #F7F5F2;
+    transition: all 1s; /*le indico que cuando hago click en el icono del menu aparezca o desaparezca el menu en 0.5 segundos */
+    transform: translate3D(100%, 0, 0); /*le indico que aparezca o desaparezca de izq a derecha el 100% del menu*/
+    padding-top: 40px;
+    /*transition-duration: 0.5s;*/
+}
+
+.menu a { /*le vamos a decir que caracteristicas tienen los nombres del menu*/
+    display: block;
+    color: #0a0a0a;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    height: 50px ; /*altura*/
+    text-decoration: none;
+    padding: 15px 15px 15px 80px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    margin-top: 25px;
+}
+.menu:hover{
+    transform: translate3d(0,0,0);
+    transition-duration: 1s;
+}
+.menu a:hover { /*le voy a indicar que cuando pase por encima del contenido del menu se vuelva transparente para indicar el activo*/
+    background: rgba(255,255,255,0.9);
+    /*transition-duration: 1s;*/
+}
+/* le voy a indicar que cuando toco el icono del menu se muestre o se oculte*/ /*para eso voy a seleccionar el menu bar y cuando tenga la pseudoclase checked del input typo checkbox  tiene que seleccionar al menu y lo traslada de un lado al otro, segun el estilo que aplique en el menu.(alt126= ~)*/
+#menu-bar:hover ~ .menu {
+    transform: translate3d(0, 0, 0);
+    transition-duration: 1s;
+}
+.redes {
+    display: flex;
+    /*flex-direction: row;*/
+    justify-content: space-around;
+    margin-top: 220px;
+}
+.redes a {
+    display: inline!important;
+    margin: 0!important;
+    padding: 0!important;
+    height: auto;
+}
+.redes img {
+    width: 23px;
+}
+.redes img:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.5);
+}
+
+/*FIN ESTILOS MENU*/
+
+/*INICIO ESTILOS MAIN*/
+
+
+
+.contenedor-info{
+    /*background-color: aqua;*/
+    width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.info {
+    width: 450px;
+    /*height: 300px;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+    margin-bottom: 50px;
+}
+.info img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.info img:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.texto-info{
+    margin-top: 40px;
+}
+
+.texto-info h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+.texto-info p{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: 300;*/
+    margin-top: 30px;
+    line-height: 2.3;
+    font-weight: lighter;
+    padding: 0 30px;
+
+}
+.whatsapp-btn {
+    background-color: #25d366;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    color: #F7F5F2;
+    border-radius: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none!important;
+}
+
+
+
+.fab{
+    font-family: Font Awesome\ 5 Brands;
+    font-weight: 400;
+    font-size: 30px;
+
+}
+
+.text-white{
+    color: #fff!important;
+}
+.fa-whatsapp::before {
+    content: "\f232";
+}
+/*FIN ESTILOS MENU*/
+
+/*INICIO ESTILOS FOOTER*/
+.footer-main {
+    height: 450px;
+    background-color: rgb(126, 124, 124);
+    text-align: center;
+    /*margin-top: 35px;*/
+    /*font-family: 'Roboto', sans-serif;*/
+
+}
+
+.container-footer{
+    display: flex;
+    justify-content: space-around;
+    width: 1500px;
+    margin: 0 auto;
+    height: 450px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 14px;
+}
+
+.container-footer a{
+    text-decoration: none;
+    color: white;
+}
+.container-footer >div{ /*>div: significa que selecciono los hijos que sean div del container-footer*/
+    margin-top: 60px;
+    
+}
+.container-footer >div li {
+    list-style: none;
+    margin-bottom: 15px;
+    
+}
+.container-footer h4{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.col-redes{
+    width: 130px;
+}
+
+.iconos-fotter{
+    display: flex;
+    justify-content: space-around;
+}
+
+.col-info ul{
+    margin-top: 20px;
+}
+
+.col-info li{
+    list-style: none;
+}
+
+.contenido{
+    color: white;
+}
+/*.container-footer{
+    display: flex;
+    justify-content: space-around;
+}*/
+  
+.contenido{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*FIN ESTILOS FOOTER*/
+
+/*INICIO ESTILOS NOSOTROS*/
+
+.fondo-nosotros {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    /*z-index: 1;*/
+    background-image: url("../img/fondomain9.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /*filter:contrast(80%);*/
+    filter: grayscale(30%); 
+}
+/*NO PUDE PONER EL MAIN/ STYLE EN NOSOTROS*/
+/*.contenedor-info div ::before{
+    content: "<main>";
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: -2rem;
+    left: 1rem;
+    text-transform: lowercase;
+}
+/*.main ::after{
+    content: "<main>" ;
+    font-family: 'La Belle Aurore', cursive;
+    color: rgb(248, 4, 4);
+    font-size: 18px;
+    position: absolute;
+    margin-top: 6rem;
+    right: 1rem;
+    text-transform: lowercase;
+}*/
+
+
+
+.contenedor-nosotros{
+    width: 1500px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.contenido-nosotros{
+    display: flex;
+   
+}
+.nosotros-info {
+    width: 30%;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    margin-top: -10px;
+    margin-right: 300px;
+    margin-left: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.experiencia h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+.experiencia h2{
+    position: relative;
+    margin-bottom: -40px;
+}
+
+.experiencia h2,
+.realizados h2{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: rgb(238, 231, 231);
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.realizados h2{
+    position: relative;
+    margin-bottom: -40px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+.experiencia h4,
+.realizados h4{
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 1.4px;
+}
+
+.nosotros-texto {
+    width: 60%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    line-height: 2;
+}
+.nosotros-texto h1{
+    font-size: 30px;
+}
+
+.nosotros-texto span{
+    font-weight: bold;
+}
+.contenedor-espe {
+    /*background-color: blue;*/
+    /*width: 1400px;*/
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-right: auto;
+    padding-left: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.titulos{
+    text-align: center;
+    /*margin-bottom: 150px;*/
+    position: relative;
+    z-index: 9;
+    margin-top: 80px;
+}
+
+.titulos h4{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
+}
+
+.titulos h2,
+.texto-hacemos h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.especializacion {
+    width: 450px;
+    text-align: center;
+}
+.especializacion img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.especializacion img:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+} 
+.texto-info{
+    margin-top: 40px;
+}
+
+/*INICIO ESTILOS SECTION COMO HACEMOS*/
+
+.como-hacemos{
+    background-color: #f8f8f8;
+    padding: 20px 0 40px 0;
+    
+}
+.contenido-como-hacemos{
+    /*background-color: blue;*/
+    /*margin-top: 80px;*/
+    width: 1500px;
+    margin: 0 auto;
+}
+
+
+.hacemos{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+
+}
+.hacemos img{
+    width: 450px;
+}
+
+.texto-hacemos{
+    width: 55%;
+    padding: 0 30px 30px 130px;
+}
+.texto-hacemos p,
+.texto-hacemos li{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: 300;*/
+    margin-top: 15px;
+    line-height: 1.3;
+    font-weight: lighter;
+    padding: 0 30px;
+}
+.texto-hacemos p{
+    margin: 40px 0;
+    line-height: 1.9;
+}
+
+.texto-hacemos li{
+    list-style: none;
+    line-height: 1.9;
+}
+
+/*FIN ESTILOS NOSOTROS*/
+
+/*INICIO ESTILOS PROYECTOS*/
+
+.fondo-proyectos {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    /*z-index: 1;*/
+    background-image: url("../img/fondomain8.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /*filter:contrast(80%);*/
+    filter: grayscale(30%); 
+}
+.contenedor-proyectos{
+    width: 1200px;
+    margin: 0 auto;
+    /*background-color: aqua;*/
+    
+}
+
+
+.proyectos{
+    margin-bottom: 80px;
+}
+.proyectos h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.proyectos p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    line-height: 2;
+}
+.imagenes-proyectos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.foto-proyectos{
+    /*position: relative;*/
+    width: 570px;
+    height: 376px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    border: solid 4px #DAB88B;
+    border-radius: 30px;
+}
+
+
+/*.foto-proyectos:last-child{
+    margin-bottom: 0;
+}*/
+
+
+.foto-proyectos img:hover{
+    transition: all 0.8s ease-in-out;
+    transform: scale(1.1);    
+
+    
+}
+
+/*FIN ESTILOS PROYECTOS*/
+
+/*INICIO ESTILOS NOTICIAS*/
+.fondo-noticias {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    /*z-index: 1;*/
+    background-image: url("../img/fondobanner.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /*filter:contrast(80%);*/
+    filter: grayscale(30%); 
+}
+
+.contenedor-noticias{
+    width: 1500px;
+    margin: 0 auto;
+    /*background-color: aqua;*/
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.noticia{
+    width: 400px;
+    padding: 0 15px;
+    margin-bottom: 80px;
+}
+.noticia a{
+    text-decoration: none;
+}
+
+.texto-blog{
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    color: #0a0a0a;
+    text-decoration: none;
+}
+
+.texto-blog h2{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.texto-blog p{
+    font-size: 16px;
+    margin-bottom: 15px;
+    /*text-align: justify;*/
+    line-height: 1.5;
+
+}
+.texto-blog span {
+    font-size: 14px;
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
+
+/*INICIO ESTILO FORMULARIO*/
+.fondo-contacto {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    /*z-index: 1;*/
+    background-image: url("../img/fondomain2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /*filter:contrast(80%);*/
+    filter: grayscale(30%); 
+}
+
+
+.formulario{
+    /*background-color: aquamarine;*/
+    width: 1300px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-info{
+    padding: 0 45px 0 70px;
+}
+.contenedor-form{
+    display: flex;
+    justify-content: space-around;
+    height: 250px;
+    align-items: center;
+
+}
+.form-inputs{
+    width: 700px;
+    margin-top: 26px;
+}
+.mapa{
+    padding: 0 45px 0 70px;
+    margin-bottom: 80px;
+}
+
+
+
+
+/*FIN ESTILO FORMULARIO*/
